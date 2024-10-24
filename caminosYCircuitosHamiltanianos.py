@@ -1,18 +1,18 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-pollito = nx.Graph()
-pollito.add_edges_from([(1, 2), (1, 3), (1, 5),
-                        (2, 6),
-                        (3, 5), (3, 4), (3, 7), (3, 11),
-                        (4, 7), (4, 10), (4, 11),
-                        (5, 6), (5, 8),
-                        (6, 8), (6, 9),
-                        (7, 8), (7, 9), (7, 10),
-                        (8, 9),
-                        (9, 10),
-                        (10, 11)])
+pollito = nx.DiGraph([("A", "B"), ("A", "C"), ("A", "E"),
+                        ("B", "F"),
+                        ("C", "E"), ("C", "D"), ("C", "G"), ("C", "K"),
+                        ("D", "G"), ("D", "J"), ("D", "K"),
+                        ("E", "F"), ("E", "H"),
+                        ("F", "H"), ("F", "I"),
+                        ("G", "H"), ("G", "I"), ("G", "J"),
+                        ("H", "I"),
+                        ("I", "J"),
+                        ("J", "K")])
 
+#nx.is_tournament(pollito)
 nx.tournament.hamiltonian_path(pollito)
 
 nx.draw_networkx(pollito, with_labels=True)
